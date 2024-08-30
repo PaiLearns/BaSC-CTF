@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTF Challenge</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+            padding: 50px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #0056b3;
+        }
+        .flag {
+            display: block;
+            margin: 20px 0;
+            padding: 10px;
+            background: #eaf2f8;
+            border: 1px solid #b0c4de;
+            border-radius: 5px;
+        }
+        .flag input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .flag button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background: #0056b3;
+            color: #fff;
+            cursor: pointer;
+        }
+        .flag button:hover {
+            background: #003d7a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the CTF Challenge!</h1>
+        <p>Your goal is to find the flag hidden in this challenge. Good luck!</p>
+        <div class="flag">
+            <label for="flagInput">Enter your flag here:</label>
+            <input type="text" id="flagInput" placeholder="Enter flag here">
+            <button onclick="checkFlag()">Submit Flag</button>
+        </div>
+    </div>
+
+    <script>
+        function checkFlag() {
+            const flagInput = document.getElementById('flagInput').value;
+            const correctFlag = 'FLAG{example_flag}'; // Replace with the actual flag
+
+            if (flagInput === correctFlag) {
+                alert('Congratulations! You found the flag!');
+            } else {
+                alert('Incorrect flag. Try again.');
+            }
+        }
+    </script>
+</body>
+</html>
