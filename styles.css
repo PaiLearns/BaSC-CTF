@@ -1,0 +1,107 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #000;
+    color: #0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    width: 100%;
+    background-color: #111;
+    color: #ff0000;
+    padding: 15px;
+    text-align: center;
+    position: relative;
+    border-bottom: 2px solid #ff0000;
+}
+
+.points {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: #00f;
+    font-size: 18px;
+}
+
+button {
+    background-color: #ff0000;
+    color: #000;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #cc0000;
+}
+
+.container {
+    width: 80%;
+    margin-top: 20px;
+}
+
+.challenge {
+    border: 2px solid #ff0000;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #222;
+    color: #0f0;
+}
+
+.challenge h2 {
+    color: #ff0000;
+}
+
+.challenge a {
+    color: #00f;
+    text-decoration: none;
+    border: 1px solid #00f;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #000;
+}
+
+.challenge a:hover {
+    background-color: #00f;
+    color: #000;
+}
+
+.challenge input {
+    background-color: #000;
+    color: #0f0;
+    border: 1px solid #ff0000;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+footer {
+    background-color: #111;
+    color: #0f0;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+.login-form {
+    background-color: #222;
+    padding: 20px;
+    border: 2px solid #ff0000;
+    border-radius: 10px;
+    color: #0f0;
+    margin-top: 20px;
+}
+
+.login-form input {
+    background-color: #000;
+    color: #0f0;
+    border: 1px solid #ff0000;
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
