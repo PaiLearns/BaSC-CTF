@@ -131,8 +131,8 @@
         <!-- Example Challenge -->
         {% for challenge in challenges %}
         <div class="challenge">
-            <h2>{{ challenge.name }}</h2>
-            <p>{{ challenge.description }}</p>
+            <h2>Catme</h2>
+            <p>do you know how to use $cat command?</p>
             <a href="{{ challenge.file_url }}" download>Download Challenge File</a>
             <form action="/submit_flag" method="POST">
                 <input type="text" name="flag" placeholder="Enter your flag here" required>
