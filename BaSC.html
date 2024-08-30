@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTF Challenge Site</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>CTF Challenge Site</h1>
+        <div class="points" id="points">Points: 0</div>
+        <button id="logout-btn" style="display: none;">Logout</button>
+    </header>
+    <main>
+        <div id="login-form" class="login-form">
+            <h2>Login</h2>
+            <input type="text" id="username" placeholder="Enter your name" required>
+            <button onclick="login()">Login</button>
+        </div>
+        <div id="challenges-container" class="container" style="display: none;"></div>
+    </main>
+    <footer>
+        <p>&copy; 2024 CTF Challenge Site</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
