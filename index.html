@@ -115,7 +115,7 @@
 </head>
 <body>
     <header>
-        <h1>CTF Challenge Site</h1>
+        <h1>BaSC CTF</h1>
         <div class="points">Points: <span id="user-points">{{ points }}</span></div>
     </header>
     <div class="container">
@@ -133,7 +133,7 @@
         <div class="challenge">
             <h2>Catme</h2>
             <p>do you know how to use $cat command?</p>
-            <a href="{{ challenge.file_url }}" download>Download Challenge File</a>
+            <a href="https://github.com/PaiLearns/BaSC-CTF/blob/main/app.py" download>Download Challenge File</a>
             <form action="/submit_flag" method="POST">
                 <input type="text" name="flag" placeholder="Enter your flag here" required>
                 <input type="hidden" name="challenge_id" value="{{ challenge.id }}">
