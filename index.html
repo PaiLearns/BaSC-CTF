@@ -3,76 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CTF Challenge</title>
+    <title>CTF Challenge Site</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #000;
+            color: #0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            width: 100%;
+            background-color: #111;
+            color: #ff0000;
+            padding: 15px;
             text-align: center;
-            padding: 50px;
+            position: relative;
+            border-bottom: 2px solid #ff0000;
+        }
+        .points {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #00f;
+            font-size: 18px;
         }
         .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: #fff;
+            width: 80%;
+            margin-top: 20px;
+        }
+        .challenge {
+            border: 2px solid #ff0000;
+            border-radius: 10px;
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            background-color: #222;
+            color: #0f0;
         }
-        h1 {
-            color: #0056b3;
+        .challenge h2 {
+            color: #ff0000;
         }
-        .flag {
-            display: block;
-            margin: 20px 0;
-            padding: 10px;
-            background: #eaf2f8;
-            border: 1px solid #b0c4de;
+        .challenge a {
+            color: #00f;
+            text-decoration: none;
+            border: 1px solid #00f;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background-color: #000;
+        }
+        .challenge a:hover {
+            background-color: #00f;
+            color: #000;
+        }
+        .challenge input {
+            background-color: #000;
+            color: #0f0;
+            border: 1px solid #ff0000;
+            padding: 5px;
             border-radius: 5px;
         }
-        .flag input {
-            width: 100%;
-            padding: 10px;
-            margin-top: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .flag button {
-            padding: 10px 20px;
+        .challenge button {
+            background-color: #ff0000;
+            color: #000;
             border: none;
+            padding: 10px;
             border-radius: 5px;
-            background: #0056b3;
-            color: #fff;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .challenge button:hover {
+            background-color: #cc0000;
+        }
+        footer {
+            background-color: #111;
+            color: #0f0;
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+        }
+        .login-form {
+            background-color: #222;
+            padding: 20px;
+            border: 2px solid #ff0000;
+            border-radius: 10px;
+            color: #0f0;
+            margin-top: 20px;
+        }
+        .login-form input {
+            background-color: #000;
+            color: #0f0;
+            border: 1px solid #ff0000;
+            padding: 5px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .login-form button {
+            background-color: #ff0000;
+            color: #000;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
             cursor: pointer;
         }
-        .flag button:hover {
-            background: #003d7a;
+        .login-form button:hover {
+            background-color: #cc0000;
         }
     </style>
 </head>
 <body>
+    <header>
+        <h1>CTF Challenge Site</h1>
+        <div class="points">Points: <span id="user-points">{{ points }}</span></div>
+    </header>
     <div class="container">
-        <h1>Welcome to the CTF Challenge!</h1>
-        <p>Your goal is to find the flag hidden in this challenge. Good luck!</p>
-        <div class="flag">
-            <label for="flagInput">Enter your flag here:</label>
-            <input type="text" id="flagInput" placeholder="Enter flag here">
-            <button onclick="checkFlag()">Submit Flag</button>
+        {% if not logged_in %}
+        <div class="login-form">
+            <h2>Login</h2>
+            <form action="/login" method="POST">
+                <input type="text" name="username" placeholder="Enter your name" required>
+                <button type="submit">Login</button>
+            </form>
         </div>
+        {% else %}
+        <!-- Example Challenge -->
+        {% for challenge in challenges %}
+        <div class="challenge">
+            <h2>{{ challenge.name }}</h2>
+            <p>{{ challenge.description }}</p>
+            <a href="{{ challenge.file_url }}" download>Download Challenge File</a>
+            <form action="/submit_flag" method="POST">
+                <input type="text" name="flag" placeholder="Enter your flag here" required>
+                <input type="hidden" name="challenge_id" value="{{ challenge.id }}">
+                <button type="submit">Submit Flag</button>
+            </form>
+        </div>
+        {% endfor %}
+        {% endif %}
     </div>
-
-    <script>
-        function checkFlag() {
-            const flagInput = document.getElementById('flagInput').value;
-            const correctFlag = 'FLAG{example_flag}'; // Replace with the actual flag
-
-            if (flagInput === correctFlag) {
-                alert('Congratulations! You found the flag!');
-            } else {
-                alert('Incorrect flag. Try again.');
-            }
-        }
-    </script>
+    <footer>
+        <p>&copy; 2024 CTF Challenge Site</p>
+    </footer>
 </body>
 </html>
